@@ -17,5 +17,5 @@ Time used was approximately 4 hours, due to the lack of free time on the exam we
 ## Next week
 
  - Coding
-      - create a simmple version of the algorithm
+      - create a simple version of the algorithm
       - create an algorithm for reading and formatting midi- files
