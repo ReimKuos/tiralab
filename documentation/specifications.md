@@ -1,6 +1,12 @@
 # Project Specifications
 
+## Description
+
+The goal is to create an algorithm that can produce sensible music, this will be accomplished by using markov chains to create the melody and and the chords.
+
 ## Needed algorithms and data structures
+
+This list exhaustive.
 
 ### Algorithms
 
@@ -23,9 +29,9 @@ The output will be a randomly generated music
 
  - [Alvin Lin, Generating Music Using Markov Chains, November 20th 2016](https://hackernoon.com/generating-music-using-markov-chains-40c3f3f46405)
  - [Erlijn J. Linskens, Music Improvisation using Markov Chains, June 13th 2014](https://dke.maastrichtuniversity.nl/gm.schoenmakers/wp-content/uploads/2015/09/Linskens-Final-Draft.pdf)
- - []
 
 ## Other information
 
  - Degree Programme: Bachelor’s in computer science
+ - Programming Language: Python
  - Language: English
