@@ -6,7 +6,7 @@ The goal is to create an algorithm that can produce sensible music, this will be
 
 ## Needed algorithms and data structures
 
-This list exhaustive.
+This list not yet exhaustive.
 
 ### Algorithms
 
