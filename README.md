@@ -4,6 +4,9 @@
 
 The goal of this project is to contruct an algorithm that can create sensible music using Markov chains.
 
+ - Programming language: Python
+ - Project language: English
+
 ## Documentation
  - [Project specification](https://github.com/ReimKuos/tiralab/blob/main/documentation/specifications.md)
  - [Implementation](https://github.com/ReimKuos/tiralab/blob/main/documentation/implementation.md)
