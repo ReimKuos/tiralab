@@ -9,7 +9,7 @@ The goal of this project is to contruct an algorithm that can create sensible mu
 
 ## Weekly reports
 
- - [Week 1]
+ - [Week 1](https://github.com/ReimKuos/tiralab/blob/main/documentation/reports/week%201%20report.md)
 
 ## Documentation
  - [Project specification](https://github.com/ReimKuos/tiralab/blob/main/documentation/specifications.md)
