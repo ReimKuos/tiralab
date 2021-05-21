@@ -1,3 +1,41 @@
 # User manual
 
-At the moment there is nothing to use
+At the moment running the program does nothing
+
+## Installing and running
+
+### Installing poetry
+
+This has to be done before anything can be run
+
+```bash
+poetry install
+```
+
+### Running the program
+
+```bash
+poetry run invoke start
+```
+
+## Testing
+
+### Running tests
+
+```bash
+poetry run invoke test
+```
+
+### Creating a coverage- report
+
+```bash
+poetry run invoke coverage-report
+```
+
+## Pylint
+
+The .pylintrc- file was copied from the OT-project
+
+```bash
+poetry run invoke lint
+```

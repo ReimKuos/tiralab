@@ -53,11 +53,10 @@ class Trie:
 
     def add(self, key, value):
         """
-        Adds a value for a given key to the Trie
+        Adds 1 to the value for a given key on the Trie
 
         Args:
             key: string
-            value: the value stored for the given key
         """
 
         node = self.start_node
