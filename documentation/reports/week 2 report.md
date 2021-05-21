@@ -23,4 +23,4 @@ Time used was approximately 9 hours
 
  ## Test coverage
 
-![Coverage](pictures/coverage_week_2.png)
+![Coverage](../pictures/coverage_week_2.png)
