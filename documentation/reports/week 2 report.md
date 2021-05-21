@@ -1,6 +1,6 @@
-# Report week 1
+# Report week 2
 
-Time used was approximately 9 hours
+Time used was approximately 10 hours
 
 ## What did I do?
 
@@ -8,8 +8,9 @@ Time used was approximately 9 hours
     - poetry
     - lint
     - tests
- - Created datastructure - Trie
+ - created datastructure - Trie
  - created a simple midi-reader function for getting notes in order
+ - created a training function for adding found notes into the Trie
  
 ## Unclear things
 
@@ -17,6 +18,7 @@ Time used was approximately 9 hours
  
 ## Next week
 
+ - Updating Trie for a specific need of this algorithm
  - implementing a functional version of the algorithnm
  - making a way to play the output
  - creating a simple UI (probably a command line operated)
