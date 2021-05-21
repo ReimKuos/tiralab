@@ -1,6 +1,7 @@
 from datastructs.trie import Trie
 from trainer import train
 
+
 def main():
     """
     Is supposed to call the algorithm and play music, but at thi moment just
@@ -9,7 +10,6 @@ def main():
     """
     trie = Trie()
     train(trie, "mond_3.mid")
-
 
 
 if __name__ == "__main__":

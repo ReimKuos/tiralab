@@ -2,6 +2,7 @@ from collections import deque
 from midireader import get_sequence
 from trie_updater import update_trie
 
+
 def train(trie, filename):
 
     last_six = deque()
@@ -9,7 +10,7 @@ def train(trie, filename):
     for _ in range(6):
         last_six.append("S")
 
-    sequnce = get_sequence("mond_3.mid")
+    sequnce = get_sequence(filename)
     sequnce.append("P")
 
     for note in sequnce:
@@ -19,7 +20,7 @@ def train(trie, filename):
 
         current_sequence = ""
 
-        for note in last_six:
-            current_sequence += note
+        for string in last_six:
+            current_sequence.join(string)
 
         update_trie(trie, current_sequence)

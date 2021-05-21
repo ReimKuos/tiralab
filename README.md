@@ -9,10 +9,11 @@ The goal of this project is to contruct an algorithm that can create sensible mu
 
 ## Weekly reports
 
- - [Week 1](https://github.com/ReimKuos/tiralab/blob/main/documentation/reports/week%201%20report.md)
+ - [Week 1](./documentation/reports/week%201%20report.md)
+ - [Week 2](./documentation/reports/week%202%20report.md)
 
 ## Documentation
- - [Project specification](https://github.com/ReimKuos/tiralab/blob/main/documentation/specifications.md)
- - [Implementation](https://github.com/ReimKuos/tiralab/blob/main/documentation/implementation.md)
- - [Testing document](https://github.com/ReimKuos/tiralab/blob/main/documentation/testing.md)
- - [User manual](https://github.com/ReimKuos/tiralab/blob/main/documentation/quide.md)
+ - [Project specification](./documentation/specifications.md)
+ - [Implementation](./documentation/implementation.md)
+ - [Testing document](./documentation/testing.md)
+ - [User manual](./documentation/quide.md)

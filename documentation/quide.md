@@ -4,6 +4,14 @@ At the moment running the program does nothing
 
 ## Installing and running
 
+### Important:
+
+The program needs mido- library to work, this can be installed with command
+
+```bash
+pip install mido
+```
+
 ### Installing poetry
 
 This has to be done before anything can be run
