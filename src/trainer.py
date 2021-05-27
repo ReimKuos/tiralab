@@ -1,26 +1,43 @@
-from collections import deque
-from midireader import get_sequence
-from trie_updater import update_trie
-
+from random import randint
+from datastructs.trie import Trie
+from midireader import get_sequence, get_notes
 
 def train(trie, filename):
 
-    last_six = deque()
+    note_1 = "S"
+    note_2 = "S"
 
-    for _ in range(6):
-        last_six.append("S")
+    for letter in get_sequence(filename):
+        trie.add(note_1 + note_2 + letter)
+        note_1 = note_2
+        note_2 = letter
 
-    sequnce = get_sequence(filename)
-    sequnce.append("P")
+    trie.add(note_1 + note_2 + "P")
 
-    for note in sequnce:
+def create_sequence(trie):
 
-        last_six.popleft()
-        last_six.append(note)
+    notes = []
+    cors1 = get_notes()
+    cors_rev = {}
 
-        current_sequence = ""
+    for key in cors1:
+        cors_rev[cors1[key]] = key
 
-        for string in last_six:
-            current_sequence.join(string)
+    note = "S"
 
-        update_trie(trie, current_sequence)
+    note_1 = "S"
+    note_2 = "S"
+
+    while note != "P":
+
+        if note in cors_rev:
+            notes.append(cors_rev[note])
+        limit = trie.find(note_1 + note_2).value
+
+        rnd = randint(1, limit)
+        note = trie.find_next(note_1 + note_2, rnd)
+
+        note_1 = note_2
+        note_2 = note
+
+    return notes

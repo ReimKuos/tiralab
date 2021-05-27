@@ -10,10 +10,10 @@ class TestTrie(unittest.TestCase):
         self.assertIsNone(self.trie.find("test"))
 
     def test_value_can_be_stored(self):
-        self.trie.add("test", 10)
-        self.assertEqual(10, self.trie.find("test"))
+        self.trie.add("test")
+        self.assertEqual(1, self.trie.find("test").value)
 
     def test_interferance_does_not_happen(self):
-        self.trie.add("test", 20)
-        self.trie.add("tests", 100)
-        self.assertEqual(20, self.trie.find("test"))
+        self.trie.add("test")
+        self.trie.add("tests")
+        self.assertEqual(2, self.trie.find("test").value)
