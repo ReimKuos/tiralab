@@ -20,9 +20,8 @@ def readfile(filename: str):
 
     for track in MidiFile(f"data/training/{filename}").tracks:
         for message in track:
-            if message.type == "note_on":
-                if message.time != 0:
-                    notes.append(message.note)
+            if message.type == "note_on" and message.time != 0:
+                notes.append(message.note)
 
     return notes
 

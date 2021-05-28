@@ -2,6 +2,7 @@
 A module that contains the Trie structure and it's supporting class
 """
 
+
 class TrieNode:
     """
     A data structure used in the Trie, stores the next nodes in the tree
@@ -15,7 +16,6 @@ class TrieNode:
 
         self.children = {}
         self.value = 0
-
 
 
 class Trie:
@@ -38,7 +38,7 @@ class Trie:
             key: string
         Returns:
             None if there is no corresponding node
-            else it returns the node 
+            else it returns the node
         """
 
         node = self.start_node
@@ -50,7 +50,6 @@ class Trie:
                 return None
 
         return node
-
 
     def add(self, key):
         """
@@ -72,7 +71,6 @@ class Trie:
             node = node.children[char]
             node.value = node.value + 1
 
-
     def find_next(self, key, limit):
         """
         Is used to find the next value of the markov chain,
@@ -90,7 +88,7 @@ class Trie:
         node = self.find(key)
 
         while node.children != {}:
-            
+
             change = False
 
             for symbol in node.children:
@@ -109,4 +107,3 @@ class Trie:
                 return results
 
         return results
-

@@ -7,6 +7,8 @@ authors = ["Reima Kuomanen <reimkuos@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 invoke = "^1.5.0"
+mido = "^1.2.10"
+pygame = "^2.0.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.4"

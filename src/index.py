@@ -1,30 +1,14 @@
-import time
-from pygame import midi
-from datastructs.trie import Trie
-from trainer import train, create_sequence
+from ui.commandlineui import CommandlineUI
 
 
 def main():
     """
-    At the moment functions as a test function for testing music
+    At the moment function just meant to generate music midi from the data,
+    most will moved somewhere else in the end
     """
+    user_interface = CommandlineUI()
+    user_interface.start()
 
-    trie = Trie()
-    train(trie, "mond_3.mid")
-    seq = create_sequence(trie)
-
-    midi.init()
-
-    player = midi.Output(0)
-    player.set_instrument(12)
-
-    for note in seq:
-        print(note)
-        player.note_on(note, 127)
-        time.sleep(0.5)
-        player.note_off(note, 127)
-
-    midi.quit()
 
 if __name__ == "__main__":
     main()

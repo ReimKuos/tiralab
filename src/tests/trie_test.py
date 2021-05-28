@@ -35,7 +35,8 @@ class TestTrie(unittest.TestCase):
             "": 0
         }
 
-        for limit in range(1,801):
+        for limit in range(1, 801):
             keys[self.trie.find_next("test", limit)] += 1
 
-        self.assertEqual((100, 200, 200, 300), (keys["A"], keys["B1"], keys["B2"], keys[""]))
+        self.assertEqual((100, 200, 200, 300),
+                         (keys["A"], keys["B1"], keys["B2"], keys[""]))
