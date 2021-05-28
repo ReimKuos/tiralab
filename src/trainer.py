@@ -1,8 +1,17 @@
+"""
+'Trains' the trie by using data created by midireader
+"""
 from random import randint
-from datastructs.trie import Trie
 from midireader import get_sequence, get_notes
 
 def train(trie, filename):
+    """
+    Adds sequnces created to the trie
+
+    Args:
+        trie: the trie the sequnces will be added to
+        filename: name of the file used for training
+    """
 
     note_1 = "S"
     note_2 = "S"
@@ -15,6 +24,16 @@ def train(trie, filename):
     trie.add(note_1 + note_2 + "P")
 
 def create_sequence(trie):
+    """
+    Function that creates a note sequence using the trie
+
+    Args:
+        trie: trie that has the data that will be used to create
+        the sequence
+
+    Returns:
+        The sequnce in a list form
+    """
 
     notes = []
     cors1 = get_notes()

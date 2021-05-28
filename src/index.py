@@ -1,4 +1,4 @@
-from pygame import time
+import time
 from pygame import midi
 from datastructs.trie import Trie
 from trainer import train, create_sequence
@@ -6,16 +6,12 @@ from trainer import train, create_sequence
 
 def main():
     """
-    Is supposed to call the algorithm and play music, but at thi moment just
-    reads a one file and saves the results in the trie, this function will be moved
-    elsewhere later.
+    At the moment functions as a test function for testing music
     """
+
     trie = Trie()
     train(trie, "mond_3.mid")
     seq = create_sequence(trie)
-
-    clock = time.Clock()
-    clock.tick(6)
 
     midi.init()
 
@@ -25,7 +21,7 @@ def main():
     for note in seq:
         print(note)
         player.note_on(note, 127)
-        clock.tick(6)
+        time.sleep(0.5)
         player.note_off(note, 127)
 
     midi.quit()

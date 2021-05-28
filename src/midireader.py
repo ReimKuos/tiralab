@@ -1,14 +1,28 @@
+"""
+This module contains the functions that can be used to tranform
+the data of a midi file so it can be stored in the trie
+"""
 from mido import MidiFile
 
 
 def readfile(filename: str):
+    """
+    Function that reads all the note_on massages in a midi file
+    and saves them into an array in their integer form
+
+    Args:
+        filename: name of the file read
+    Returns:
+        A array containing the note values
+    """
 
     notes = []
 
     for track in MidiFile(f"data/training/{filename}").tracks:
         for message in track:
             if message.type == "note_on":
-                notes.append(message.note)
+                if message.time != 0:
+                    notes.append(message.note)
 
     return notes
 
@@ -17,6 +31,10 @@ def get_notes():
     """
     Function that generates a dictionary containing all the
     notes having the numbers used in midi as their keys
+
+    Returns:
+        A dictionary containing note integer forms as keys and
+        notes in string form as corresponding values
     """
 
     notes = {}
@@ -35,6 +53,17 @@ def get_notes():
 
 
 def get_sequence(filename: str):
+    """
+    Reads tranforms the array containing the integer form notes
+    into a one only containing the note representations in
+    string form
+
+    Args:
+        filename: the name of the file read
+
+    Retruns:
+        an array containing notes in a string form
+    """
 
     notes = readfile(filename)
     keys = get_notes()
@@ -44,4 +73,3 @@ def get_sequence(filename: str):
 
 if __name__ == "__main__":
     print(get_sequence("mond_3.mid"))
-    print(get_notes())
