@@ -33,6 +33,11 @@ poetry run invoke start
 ## Commands for the program
 
 At the moment there are 5 commands which are 
+- try: Which simulates the following commands:
+    - train
+    - all
+    - create
+    - play
 - train: which adds data to the trie
     - when it asks for a filename, that file has to be in the data/training/ directory
     - all trains whit all hard programmed files
@@ -46,11 +51,8 @@ Alltough play and stop won't seem to work if program was started trough poetry
 if the program won't play the music, you can play the saved piece externally on a midi player, the file name is new_song.mid and it's located in the data directory
 
 ### Best way to run the program is this at the moment:
-Give these commands in order
- - train
- - all
- - create
- - play 
+Give this command
+ - try
 (if play gives an error just open the afformentioned file in an external midi player, running by using the index.py in visual studio should run the program)
 
 ## Testing
