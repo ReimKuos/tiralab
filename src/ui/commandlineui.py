@@ -20,6 +20,7 @@ class CommandlineUI:
         """
         starts the mainloop
         """
+
         self.mainloop()
 
     def mainloop(self):
@@ -44,6 +45,9 @@ class CommandlineUI:
                     self.train_all()
                 else:
                     self.train(filename)
+            
+            elif command == "save":
+                pass
 
             elif command == "create":
                 self.create_piece()
@@ -51,8 +55,13 @@ class CommandlineUI:
             elif command == "quit":
                 self.running = False
 
+            elif command == "try":
+                self.tester()
+
             else:
                 print("Command not right")
+
+        print("")
 
     def train(self, filename):
         """
@@ -61,12 +70,14 @@ class CommandlineUI:
         Args:
             filename: name of the midi file used for training
         """
+
         train(self.trie, filename)
 
     def create_piece(self):
         """
         creates a midi file cointaining the music created by the algorithm
         """
+
         seq = create_sequence(self.trie)
         create_music(seq)
 
@@ -75,6 +86,7 @@ class CommandlineUI:
         At the moment has all the music files hard coded, will use a file that
         has all their names later
         """
+
         train(self.trie, "cs3-1pre.mid")
         train(self.trie, "cs3-2all.mid")
         train(self.trie, "cs3-3cou.mid")
@@ -96,6 +108,7 @@ class CommandlineUI:
         """
         plays the music file the algorithm creates
         """
+
         mixer.music.load("data/new_song.mid")
         mixer.music.play()
 
@@ -103,4 +116,14 @@ class CommandlineUI:
         """
         stops music if it's not playing
         """
+
         mixer.music.stop()
+
+    def tester(self):
+        """
+        Creates a piece from with all training
+        """
+
+        self.train_all()
+        self.create_piece()
+        self.play_music()

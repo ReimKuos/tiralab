@@ -1,8 +1,8 @@
 """
 'Trains' the trie by using data created by midireader
 """
-from midireader import get_sequence
-
+from midireader import readfile
+from datastructs.queue import Queue
 
 def train(trie, filename):
     """
@@ -13,14 +13,25 @@ def train(trie, filename):
         filename: name of the file used for training
     """
 
-    notechain = ["S"]*5
+    last_five = Queue()
 
-    for letter in get_sequence(filename):
-        trie.add(notechain[0] + notechain[1] +
-                 notechain[2] + notechain[3] + notechain[4] + letter)
-        for index in range(4):
-            notechain[index] = notechain[index + 1]
-        notechain[4] = letter
+    for _ in range(5):
+        last_five.add("S")
 
-    trie.add(notechain[0] + notechain[1] + notechain[2] +
-             notechain[3] + notechain[4] + "P")
+    for letter in readfile(filename):
+        key = ""
+        for seq in last_five:
+            key = key + seq
+        key = key + letter
+
+        trie.add(key)
+
+        last_five.remove()
+        last_five.add(letter)
+
+    key = ""
+    for seq in last_five:
+        key = key + seq
+    key = key +"P"
+    trie.add(key)
+

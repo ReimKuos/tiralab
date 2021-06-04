@@ -1,6 +1,5 @@
 from random import randint
-from midireader import get_notes
-
+from datastructs.queue import Queue
 
 def create_sequence(trie):
     """
@@ -15,30 +14,27 @@ def create_sequence(trie):
     """
 
     notes = []
-    cors1 = get_notes()
-    cors_rev = {}
-
-    for key in cors1:
-        cors_rev[cors1[key]] = key
-
+    last_five = Queue()
     note = "S"
 
-    notechain = ["S"]*5
+    for _ in range(5):
+        last_five.add("S")
 
     while note != "P":
 
-        if note in cors_rev:
-            notes.append(cors_rev[note])
-        limit = trie.find(notechain[0] + notechain[1] +
-                          notechain[2] + notechain[3] +
-                          notechain[4]).value
+        if note != "S":
+            notes.append(note)
 
+        key = ""
+        for seq in last_five:
+            key = key + seq
+       
+        limit = trie.find(key).value
         rnd = randint(1, limit)
-        note = trie.find_next(
-            notechain[0] + notechain[1] + notechain[2] + notechain[3] + notechain[4], rnd)
 
-        for index in range(4):
-            notechain[index] = notechain[index + 1]
-        notechain[4] = note
+        note = trie.find_next(key, rnd)
 
+        last_five.remove()
+        last_five.add(note)
+        
     return notes
