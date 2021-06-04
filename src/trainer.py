@@ -4,6 +4,7 @@
 from midireader import readfile
 from datastructs.queue import Queue
 
+
 def train(trie, filename):
     """
     Adds sequnces created to the trie
@@ -32,6 +33,5 @@ def train(trie, filename):
     key = ""
     for seq in last_five:
         key = key + seq
-    key = key +"P"
+    key = key + "P"
     trie.add(key)
-

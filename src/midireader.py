@@ -4,18 +4,19 @@ the data of a midi file so it can be stored in the trie
 """
 from mido import MidiFile
 
-def convert(type):
+
+def convert(identifier):
     """
     A function that converts the string of messagetype into
     a simpler form
 
     Args:
-        type: A string either note_on or note_off
+        identifier: A string either note_on or note_off
 
     Return:
         a char either T or F
     """
-    if type == "note_off":
+    if identifier == "note_off":
         return "F"
     return "T"
 

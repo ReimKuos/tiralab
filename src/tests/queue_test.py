@@ -1,6 +1,7 @@
 import unittest
 from datastructs.queue import Queue
 
+
 class TestQueue(unittest.TestCase):
     def setUp(self):
         self.queue = Queue()
@@ -31,12 +32,10 @@ class TestQueue(unittest.TestCase):
         self.assertEqual(self.queue.start_node.value, 2)
 
     def test_values_are_in_correct_order(self):
-        array = [1,2,4,4,5,6,1,12]
+        array = [1, 2, 4, 4, 5, 6, 1, 12]
         for number in array:
             self.queue.add(number)
         index = 0
         for number in self.queue:
             self.assertEqual(number, array[index])
             index += 1
-        
-

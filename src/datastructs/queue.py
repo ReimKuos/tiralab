@@ -2,6 +2,7 @@
 This module contains the Queue and it's supporting class
 """
 
+
 class QueueNode:
     """
     A simple class used to store a value and the location of the next node
@@ -18,6 +19,7 @@ class QueueNode:
         self.value = value
         self.next = None
 
+
 class Queue:
     """
     A class that has fast adding to the end and fast removing from the front,
@@ -31,7 +33,6 @@ class Queue:
 
         self.start_node = None
         self.end_node = None
-
 
     def add(self, value):
         """
@@ -50,7 +51,6 @@ class Queue:
 
         self.end_node.next = node
         self.end_node = node
-
 
     def remove(self):
         """
@@ -75,7 +75,6 @@ class Queue:
         self.node = self.start_node
         return self
 
-
     def __next__(self):
         """
         A methdod used for iteration, iterates over all nodes in the linked list
@@ -83,10 +82,9 @@ class Queue:
         Returns:
             the value of the current node in the iteration
         """
-        
+
         if self.node is not None:
             value = self.node.value
             self.node = self.node.next
             return value
-        else:
-            raise StopIteration
+        raise StopIteration

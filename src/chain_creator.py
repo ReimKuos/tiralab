@@ -1,6 +1,7 @@
 from random import randint
 from datastructs.queue import Queue
 
+
 def create_sequence(trie):
     """
     Function that creates a note sequence using the trie
@@ -28,7 +29,7 @@ def create_sequence(trie):
         key = ""
         for seq in last_five:
             key = key + seq
-       
+
         limit = trie.find(key).value
         rnd = randint(1, limit)
 
@@ -36,5 +37,5 @@ def create_sequence(trie):
 
         last_five.remove()
         last_five.add(note)
-        
+
     return notes

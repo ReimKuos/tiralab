@@ -1,22 +1,22 @@
 # Report week 3
 
-Time used was approximately 11 hours
+Time used was approximately 7 hours
 
 ## What did I do?
 
  - Create a data structure Queue
- 
+ - Updated midi reading and creation functions to make it easier to implement note length and other note attributes in the future
+ - Started testing file which currently is pretty empty
+
 ## Unclear things
 
- - Nothing at the moment, help will be asked if something comes up
+ - Is there an effective/reasonable way to implement "dict" in python
  
 ## Next week
 
- - Implementing note length variation to the algorithm
-    - maby also using it to play multiple notes at the same time (midi-file makes these thing connected)
- - creating linked tree/list to replace strings in the training algorithm/reading
- - Implementing testing for most things where it currenctly is missing
- - documentation for week 4
+ - Implementing note length variation to the algorithm (this won't be hard to implement for the improved reading and writing functions)
+ - creating a linked list to replace strings
+ - other required documentation/improving the exsistings ones
 
  ## Test coverage
 

@@ -45,7 +45,7 @@ class CommandlineUI:
                     self.train_all()
                 else:
                     self.train(filename)
-            
+
             elif command == "save":
                 pass
 

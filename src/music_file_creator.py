@@ -36,10 +36,9 @@ def create_music(seq):
         data = note.split(":")
         track.append(
             Message("note_on", note=int(data[0]), velocity=63, time=0
-            ))
+                    ))
         track.append(
             Message("note_off", note=int(data[0]), velocity=63, time=int(data[1])
-            ))
+                    ))
 
     midi.save("data/new_song.mid")
-
