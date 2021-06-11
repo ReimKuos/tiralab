@@ -1,5 +1,7 @@
 # Algorithm Project
 
+NOTE: Some docstring are incorrect I didn't have time to fix them, just that string -> queue
+
 ## Project Description
 
 The goal of this project is to contruct an algorithm that can create sensible music using Markov chains.
