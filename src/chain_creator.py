@@ -2,7 +2,7 @@ from random import randint
 from datastructs.queue import Queue
 
 
-def create_sequence(trie):
+def create_sequence(trie, degree):
     """
     Function that creates a note sequence using the trie
 
@@ -14,21 +14,21 @@ def create_sequence(trie):
         The sequnce in a list form
     """
 
-    notes = []
+    notes = Queue()
     last_five = Queue()
-    note = "S"
+    note = 0
 
-    for _ in range(5):
-        last_five.add("S")
+    for _ in range(degree):
+        last_five.add(0)
 
-    while note != "P":
+    while note != 1:
 
-        if note != "S":
-            notes.append(note)
+        if note != 0:
+            notes.add(note)
 
-        key = ""
-        for seq in last_five:
-            key = key + seq
+        key = Queue()
+        for value in last_five:
+            key.add(value)
 
         limit = trie.find(key).value
         rnd = randint(1, limit)

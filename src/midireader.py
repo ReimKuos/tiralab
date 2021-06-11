@@ -3,22 +3,8 @@ This module contains the functions that can be used to tranform
 the data of a midi file so it can be stored in the trie
 """
 from mido import MidiFile
-
-
-def convert(identifier):
-    """
-    A function that converts the string of messagetype into
-    a simpler form
-
-    Args:
-        identifier: A string either note_on or note_off
-
-    Return:
-        a char either T or F
-    """
-    if identifier == "note_off":
-        return "F"
-    return "T"
+from transposer import find_transposing_value
+from datastructs.queue import Queue
 
 
 def readfile(filename: str):
@@ -33,10 +19,12 @@ def readfile(filename: str):
     """
 
     data = MidiFile(f"data/training/{filename}")
-    notes = []
+    notes = Queue()
+
+    offset = find_transposing_value(filename)
 
     for message in data:
         if message.time != 0 and message.type == "note_on":
-            notes.append(f"{message.note}:184")
+            notes.add(message.note - offset)
 
     return notes

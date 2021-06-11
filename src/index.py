@@ -7,7 +7,7 @@ def main():
     most will moved somewhere else in the end
     """
     user_interface = CommandlineUI()
-    user_interface.start()
+    user_interface.execute()
 
 
 if __name__ == "__main__":

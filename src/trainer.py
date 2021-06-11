@@ -5,9 +5,9 @@ from midireader import readfile
 from datastructs.queue import Queue
 
 
-def train(trie, filename):
+def train(trie, filename, degree):
     """
-    Adds sequnces created to the trie
+    Adds sequnce instances found in a selected file to the trie to train it
 
     Args:
         trie: the trie the sequnces will be added to
@@ -16,22 +16,23 @@ def train(trie, filename):
 
     last_five = Queue()
 
-    for _ in range(5):
-        last_five.add("S")
+    for _ in range(degree):
+        last_five.add(0)
 
-    for letter in readfile(filename):
-        key = ""
-        for seq in last_five:
-            key = key + seq
-        key = key + letter
+    for primary_note in readfile(filename):
+        key = Queue()
+        for note in last_five:
+            key.add(note)
+        key.add(primary_note)
 
         trie.add(key)
 
         last_five.remove()
-        last_five.add(letter)
+        last_five.add(primary_note)
 
-    key = ""
-    for seq in last_five:
-        key = key + seq
-    key = key + "P"
+    key = Queue()
+    for note in last_five:
+        key.add(note)
+
+    key.add(1)
     trie.add(key)

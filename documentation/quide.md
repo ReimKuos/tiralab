@@ -32,23 +32,8 @@ poetry run invoke start
 
 ## Commands for the program
 
-At the moment there are 5 commands which are 
-- try: Which simulates the following commands:
-    - train
-    - all
-    - create
-    - play
-- train: which adds data to the trie
-    - when it asks for a filename, that file has to be in the data/training/ directory
-    - all trains whit all hard programmed files
-- create: creates a midi file using the algorithm, replaces the previous one (saving comes later)
-- play: plays the created tune
-- stop: ends the music
-- quit: end the program
-
-Alltough play and stop won't seem to work if program was started trough poetry
-
-if the program won't play the music, you can play the saved piece externally on a midi player, the file name is new_song.mid and it's located in the data directory
+- degree of the markov chain, can be anything but 4-6 is recommended
+- the program won't play the song and it can be found in the data directory it is the file "new_song.mid"
 
 ### Best way to run the program is this at the moment:
 Give this command

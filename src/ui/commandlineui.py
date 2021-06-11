@@ -1,4 +1,5 @@
 from pygame import mixer
+import os
 from datastructs.trie import Trie
 from trainer import train
 from chain_creator import create_sequence
@@ -12,118 +13,31 @@ class CommandlineUI:
     """
 
     def __init__(self):
+
         self.trie = Trie()
-        self.running = True
-        mixer.init()
+        self.degree = 4
 
-    def start(self):
-        """
-        starts the mainloop
-        """
+    def execute(self):
+        print(
+            "Give the degree of the markov chain (range 3-6)"
+        )
+        degree = int(input())
+        self.degree = degree
+        self.train()
+        self.create()
 
-        self.mainloop()
+    def train(self):
 
-    def mainloop(self):
-        """
-        Mainloop that takes command and takes actions based on them
-        """
+        print("Reading files and training")
+        path = "data/training//"
+        for file in os.listdir(path):
+            if file.endswith(".mid"):
+                train(self.trie, file, self.degree)
 
-        while self.running:
+    def create(self):
 
-            command = input("Give a command: ")
-
-            if command == "play":
-                self.play_music()
-
-            elif command == "stop":
-                self.stop_music()
-
-            elif command == "train":
-                filename = input("Give filename: ")
-
-                if filename == "all":
-                    self.train_all()
-                else:
-                    self.train(filename)
-
-            elif command == "save":
-                pass
-
-            elif command == "create":
-                self.create_piece()
-
-            elif command == "quit":
-                self.running = False
-
-            elif command == "try":
-                self.tester()
-
-            else:
-                print("Command not right")
-
-        print("")
-
-    def train(self, filename):
-        """
-        'Trains' the trie by saving notes of a given midi file in it
-
-        Args:
-            filename: name of the midi file used for training
-        """
-
-        train(self.trie, filename)
-
-    def create_piece(self):
-        """
-        creates a midi file cointaining the music created by the algorithm
-        """
-
-        seq = create_sequence(self.trie)
+        print("Creating music")
+        seq = create_sequence(self.trie, self.degree)
+        print("Creating a music file")
         create_music(seq)
-
-    def train_all(self):
-        """
-        At the moment has all the music files hard coded, will use a file that
-        has all their names later
-        """
-
-        train(self.trie, "cs3-1pre.mid")
-        train(self.trie, "cs3-2all.mid")
-        train(self.trie, "cs3-3cou.mid")
-        train(self.trie, "cs3-4sar.mid")
-        train(self.trie, "cs3-5bou.mid")
-        train(self.trie, "cs3-6gig.mid")
-
-        train(self.trie, "jsbtafc.mid")
-
-        train(self.trie, "mozk309a.mid")
-        train(self.trie, "mozk309b.mid")
-        train(self.trie, "mozk309c.mid")
-
-        train(self.trie, "mozk246a.mid")
-        train(self.trie, "mozk246b.mid")
-        train(self.trie, "mozk246c.mid")
-
-    def play_music(self):
-        """
-        plays the music file the algorithm creates
-        """
-
-        mixer.music.load("data/new_song.mid")
-        mixer.music.play()
-
-    def stop_music(self):
-        """
-        stops music if it's not playing
-        """
-
-        mixer.music.stop()
-
-    def tester(self):
-        """
-        Creates a piece from with all training
-        """
-
-        self.train_all()
-        self.create_piece()
-        self.play_music()
+        print("Done!")

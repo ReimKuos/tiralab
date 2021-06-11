@@ -1,42 +1,37 @@
 import unittest
 from datastructs.trie import Trie
+from datastructs.queue import Queue
 
 
 class TestTrie(unittest.TestCase):
     def setUp(self):
         self.trie = Trie()
+        self.key = Queue()
 
     def test_non_existing_key_retruns_none(self):
-        self.assertIsNone(self.trie.find("test"))
+        self.key.add(100)
+        self.assertIsNone(self.trie.find(self.key))
 
     def test_value_can_be_stored(self):
-        self.trie.add("test")
-        self.assertEqual(1, self.trie.find("test").value)
+        for i in range(10):
+            self.key.add(i)
+        self.trie.add(self.key)
+        self.assertEqual(1, self.trie.find(self.key).value)
 
     def test_interferance_does_not_happen(self):
-        self.trie.add("test")
-        self.trie.add("tests")
-        self.assertEqual(2, self.trie.find("test").value)
+        self.key.add(1)
+        self.trie.add(self.key)
+        self.key.add(2)
+        self.trie.add(self.key)
+        self.key.remove()
+        self.key.remove()
+        self.key.add(1)
+        self.assertEqual(2, self.trie.find(self.key).value)
 
-    def test_find_next_portions_are_correct(self):
-        for _ in range(100):
-            self.trie.add("testA")
-        for _ in range(200):
-            self.trie.add("testB1")
-        for _ in range(200):
-            self.trie.add("testB2")
-        for _ in range(300):
-            self.trie.add("test")
-
-        keys = {
-            "A": 0,
-            "B1": 0,
-            "B2": 0,
-            "": 0
-        }
-
-        for limit in range(1, 801):
-            keys[self.trie.find_next("test", limit)] += 1
-
-        self.assertEqual((100, 200, 200, 300),
-                         (keys["A"], keys["B1"], keys["B2"], keys[""]))
+    def test_find_next_works(self):
+        self.key.add(1)
+        self.key.add(1)
+        self.key.add(1)
+        self.trie.add(self.key)
+        self.key.remove()
+        self.assertEqual(1, self.trie.find_next(self.key, 1))

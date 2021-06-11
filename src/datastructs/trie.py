@@ -14,7 +14,7 @@ class TrieNode:
         Initializes the node whith no children and 'None' foe value
         """
 
-        self.children = {}
+        self.children = [None]*129
         self.value = 0
 
 
@@ -35,7 +35,7 @@ class Trie:
         Finds the node located in trie for a given key
 
         Args:
-            key: string
+            key: a queue data structure containing a sequnce
         Returns:
             None if there is no corresponding node
             else it returns the node
@@ -43,9 +43,9 @@ class Trie:
 
         node = self.start_node
 
-        for char in key:
-            if char in node.children:
-                node = node.children[char]
+        for note in key:
+            if node.children[note] is not None:
+                node = node.children[note]
             else:
                 return None
 
@@ -57,18 +57,18 @@ class Trie:
         the key
 
         Args:
-            key: string
+            key: a queue data structure containing a sequnce, that points to the value wanted
         """
 
         node = self.start_node
         node.value = node.value + 1
 
-        for char in key:
+        for note in key:
 
-            if char not in node.children:
-                node.children[char] = TrieNode()
+            if node.children[note] is None:
+                node.children[note] = TrieNode()
 
-            node = node.children[char]
+            node = node.children[note]
             node.value = node.value + 1
 
     def find_next(self, key, limit):
@@ -84,26 +84,15 @@ class Trie:
             Note in a string form
         """
 
-        results = ""
+        running_total = 0
         node = self.find(key)
 
-        while node.children != {}:
+        for index in range(129):
+            child = node.children[index]
+            if child is None:
+                continue
+            running_total += child.value
+            if limit <= running_total:
+                return index
 
-            change = False
-
-            for symbol in node.children:
-
-                value = node.children[symbol].value
-
-                if limit <= value:
-                    node = node.children[symbol]
-                    results = results + symbol
-                    change = True
-                    break
-
-                limit -= value
-
-            if not change:
-                return results
-
-        return results
+        return None

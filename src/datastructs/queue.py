@@ -33,6 +33,7 @@ class Queue:
 
         self.start_node = None
         self.end_node = None
+        self.node = None
 
     def add(self, value):
         """
