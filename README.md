@@ -13,6 +13,8 @@ The goal of this project is to contruct an algorithm that can create sensible mu
  - [Week 2](./documentation/reports/week%202%20report.md)
  - [Week 3](./documentation/reports/week%203%20report.md)
  - [Week 4](./documentation/reports/week%204%20report.md)
+ - [Week 5](./documentation/reports/week%205%20report.md)
+
 
 ## Documentation
  - [Project specification](./documentation/specifications.md)
