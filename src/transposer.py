@@ -53,9 +53,6 @@ def find_transposing_value(filename: str):
 
     if second_half_step - first_half_step == 5:
         return first_half_step
-
-    return second_half_step
-
-
-if __name__ == "__main__":
-    print(find_transposing_value("savelma20210612001741.mid"))
+    if second_half_step - first_half_step == 7:
+        return second_half_step
+    return None

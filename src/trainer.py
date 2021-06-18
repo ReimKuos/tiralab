@@ -19,7 +19,11 @@ def train(trie, filename, degree):
     for _ in range(degree):
         last_five.add(0)
 
-    for primary_note in readfile(filename):
+    notes = readfile(filename)
+    if notes is None:
+        return
+
+    for primary_note in notes:
         key = Queue()
         for note in last_five:
             key.add(note)

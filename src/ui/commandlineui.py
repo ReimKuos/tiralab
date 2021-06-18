@@ -1,4 +1,3 @@
-from pygame import mixer
 import os
 from datastructs.trie import Trie
 from trainer import train
@@ -24,7 +23,10 @@ class CommandlineUI:
         degree = int(input())
         self.degree = degree
         self.train()
-        self.create()
+        while input("Create a file? (y/n)\n") == "y":
+            self.create()
+
+        print("\nDone - the program ha s closed")
 
     def train(self):
 
@@ -33,11 +35,11 @@ class CommandlineUI:
         for file in os.listdir(path):
             if file.endswith(".mid"):
                 train(self.trie, file, self.degree)
+        print("Training complete!\n")
 
     def create(self):
 
-        print("Creating music")
         seq = create_sequence(self.trie, self.degree)
-        print("Creating a music file")
-        create_music(seq)
-        print("Done!")
+        name = input("Give a name for the created file (whitout file ending)\n")
+        create_music(seq, name)
+        print(f"file {name}.mid created\n")
