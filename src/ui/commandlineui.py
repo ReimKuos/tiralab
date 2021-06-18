@@ -40,6 +40,7 @@ class CommandlineUI:
     def create(self):
 
         seq = create_sequence(self.trie, self.degree)
-        name = input("Give a name for the created file (whitout file ending)\n")
+        name = input(
+            "Give a name for the created file (whitout file ending)\n")
         create_music(seq, name)
         print(f"file {name}.mid created\n")
