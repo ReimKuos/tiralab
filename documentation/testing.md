@@ -4,8 +4,8 @@
 
 ### Tested thing
 
-    - unittesting has been done for both data structures
-    - also some functions have been tested for their base case, otherwise due to randomness/creation of files have been left untested due to difficulty of testing
+ - unittesting has been done for both data structures
+ - also some functions have been tested for their base case, otherwise due to randomness/creation of files have been left untested due to difficulty of testing
 
 ### Coverage
 
