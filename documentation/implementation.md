@@ -21,7 +21,7 @@ The process of the algorithm is as follows
 
         for file in files:
             train(note_trie, degree)
-        time_train(time_trie)
+        time_train(time_trie, degree)
 
         sequence = create_sequence(note_trie, time_trie, degree)
         create_music_file(sequence)
@@ -53,7 +53,7 @@ The process of the algorithm is as follows
  - train
     - Construction of the key stays constant during the loop, but as the tries add method is called we get the time complexity O(kn), where n is the lenght of the inout sequnce and k is the degree of the makrov chain
  - train_time
-    - else identical to trainer, but n is always 2 and for this reason the time complexity is O(k), where k is the lenght of the file
+    - else identical to trainer, but n is always 3 (in the algorithm) and for this reason the time complexity is O(k), where k is the lenght of the file
  - find_transposing_value
     - size of the file is the only affecting time complexity of the function hence the time complexity is O(n) 
  - create_sequence

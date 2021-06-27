@@ -1,8 +1,15 @@
 # Testing
 
 ## Unit testing 
-    - currently both data structures are unittested
-    - other functions have not been tested as they are not in their final iteration which would meke testing a waste of time
+
+### Tested thing
+
+    - unittesting has been done for both data structures
+    - also some functions have been tested for their base case, otherwise due to randomness/creation of files have been left untested due to difficulty of testing
+
+### Coverage
+
+![Coverage](/pictures/coverage_final.png)
 
 ## Rightness of Output
 
@@ -19,14 +26,42 @@
 ### 2nd degree
  
  - Quality
-    - 
+    - The created pieces seem detached and chaotic, for this reason the quality can be considered poor, but not worse as there is some harmony 2/10
  - Originality
-    - They seemed to work as part chaotic part like a scale pratice for this reason the originality score is 3.5/10
+    - They seemed to work as part chaotic part like a scale pratice for this reason the originality score is 9/10
  - General
     - Alltought there was some harmony the pieces themselves seemed a bit chaotic and directionless, also the first had a duration of over 24 minutes
 
 ### 4th degree
 
+ - Quality
+    - There still exist some chaotic parts but there is greater harmony and the pieces seem more structured hence a score 4/10
+ - Originality
+    - Part chaotic and did not sound like the training data hence score 9/10
+ - General
+    - More direction and better harmony seems like an improvement
+
+
 ### 6th degree
 
+ - Quality
+    - As expected some chaos exist in the pieces but harmony and melodies have somewhat imporved compared to 4th degree, score is 6/10
+ - Originality
+    - Some recognizable parts have emerged, meaning some originality has been lost hence the score is 8/10
+ - General
+    - More direction and better harmony seems like an improvement (same as transition from 3rd to 4th degree)
+
 ### 8th degree
+
+ - Quality
+    - Compared to 6th degree the quality has greatly increased and number of harmonic melodies ha grown, score is 7/10
+ - Originality
+    - Some recognizable parts have emerged, meaning some originality has been lost more tha in the 6th degree hence the scoreis 7/10
+ - General
+    - Good direction and harmony, only the mediocer time creation holds the pieces back
+
+## Results analysis
+
+Results are as expected, the quality tends to increase with the degree but originality suffers 
+
+(The test files are the current files in the created directory in from TestXDegreeY.midi)

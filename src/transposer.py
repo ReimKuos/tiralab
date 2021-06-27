@@ -58,5 +58,5 @@ def find_transposing_value(filename: str):
         return first_half_step
     if second_half_step - first_half_step == 7:
         return second_half_step
-        
+
     return None

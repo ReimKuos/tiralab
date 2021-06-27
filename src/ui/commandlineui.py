@@ -58,7 +58,7 @@ class CommandlineUI:
             if file.endswith(".mid"):
                 train(self.trie, file, self.degree)
 
-        train_time(self.time, "chpn-p1.mid")
+        train_time(self.time, "chpn-p1.mid", 3)
 
         print("Training complete!\n")
 

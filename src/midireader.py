@@ -34,3 +34,4 @@ def readfile(filename: str, time=False):
                 else:
                     notes.add(message.note - offset)
     return notes
+    
