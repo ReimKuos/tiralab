@@ -9,7 +9,7 @@
 
 ### Coverage
 
-![Coverage](/pictures/coverage_final.png)
+![Coverage](./pictures/coverage_final.png)
 
 ## Rightness of Output
 
