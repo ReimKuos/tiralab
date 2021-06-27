@@ -14,29 +14,19 @@ def train(trie, filename, degree):
         filename: name of the file used for training
     """
 
-    last_five = Queue()
+    key = Queue()
 
     for _ in range(degree):
-        last_five.add(0)
+        key.add(0)
 
     notes = readfile(filename)
     if notes is None:
         return
 
     for primary_note in notes:
-        key = Queue()
-        for note in last_five:
-            key.add(note)
         key.add(primary_note)
-
         trie.add(key)
-
-        last_five.remove()
-        last_five.add(primary_note)
-
-    key = Queue()
-    for note in last_five:
-        key.add(note)
+        key.remove()
 
     key.add(1)
     trie.add(key)

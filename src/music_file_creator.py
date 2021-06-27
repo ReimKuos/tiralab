@@ -1,5 +1,4 @@
 from mido import MidiFile, MidiTrack, Message
-from random import choice
 
 
 def create_music(seq, name):
@@ -13,30 +12,15 @@ def create_music(seq, name):
     midi = MidiFile()
     track = MidiTrack()
 
-    count = 8
-    base = 0
-
     midi.tracks.append(track)
     track.append(
         Message("program_change", program=0, time=0)
     )
+
     for note in seq:
 
-        if count == 8:
-            count = 0
-            track.append(
-                Message("note_off", note=base, velocity=63, time=0
-                        ))
-            track.append(
-                Message("note_on", note=note, velocity=63, time=0
-                        ))
-            base = note
-
         track.append(
-            Message("note_on", note=note, velocity=63, time=0
-                    ))
-        track.append(
-            Message("note_off", note=note, velocity=63, time=184
+            Message("note_on", note=note[0], velocity=63, time=note[1]
                     ))
 
     midi.save(f"data/created/{name}.mid")

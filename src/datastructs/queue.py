@@ -42,7 +42,6 @@ class Queue:
         Args:
             value: the value attached to the added ode
         """
-
         node = QueueNode(value)
 
         if self.start_node is None:

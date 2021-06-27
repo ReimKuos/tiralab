@@ -5,10 +5,9 @@ the data of a midi file so it can be stored in the trie
 from mido import MidiFile
 from transposer import find_transposing_value
 from datastructs.queue import Queue
-from math import sqrt
 
 
-def readfile(filename: str):
+def readfile(filename: str, time=False):
     """
     Reads the midifile and pastes the infromation of right messages into a list
 
@@ -23,11 +22,15 @@ def readfile(filename: str):
     notes = Queue()
 
     offset = find_transposing_value(filename)
+    tracks = data.tracks
 
     if offset is None:
         return None
-
-    for message in data:
-        if message.time != 0 and message.type == "note_on":
-            notes.add(message.note - offset)
+    for track in tracks:
+        for message in track:
+            if message.type == "note_on":
+                if time and message.time != 0:
+                    notes.add(message.time)
+                else:
+                    notes.add(message.note - offset)
     return notes

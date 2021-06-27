@@ -3,13 +3,16 @@ from mido import MidiFile
 
 def find_transposing_value(filename: str):
     """
-    Reads the midifile and pastes the infromation of right messages into a list
+    Reads the midifile and creates an offset value based on the frecvensies
+    of different notes which is then used to shift all training music into
+    the key of C
 
     Args:
         filename: name of the file read
 
     Returns:
-        a list containing the note data in string form
+        An Integer value that will be used to shift the data,
+        None is returned if one cannot be found
     """
 
     data = MidiFile(f"data/training/{filename}")
@@ -55,4 +58,5 @@ def find_transposing_value(filename: str):
         return first_half_step
     if second_half_step - first_half_step == 7:
         return second_half_step
+        
     return None
