@@ -14,17 +14,17 @@ The process of the algorithm is as follows
 
 ### Pseudo code
 
-def create_music(degree):
+    def create_music(degree):
 
-    note_trie = Trie
-    time_trie = Trie
+        note_trie = Trie
+        time_trie = Trie
 
-    for file in files:
-        train(note_trie, degree)
-    time_train(time_trie)
+        for file in files:
+            train(note_trie, degree)
+        time_train(time_trie)
 
-    sequence = create_sequence(note_trie, time_trie, degree)
-    create_music_file(sequence)
+        sequence = create_sequence(note_trie, time_trie, degree)
+        create_music_file(sequence)
 
 
 ## Time complexity
